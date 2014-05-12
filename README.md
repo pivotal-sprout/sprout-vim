@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/pivotal-sprout/sprout-vim.png?branch=master)](https://travis-ci.org/pivotal-sprout/sprout-vim)
 
-Cookbok for managing vim on an OS X workstation
+Cookbook for managing vim on an OS X workstation
 
 ## Usage
 
