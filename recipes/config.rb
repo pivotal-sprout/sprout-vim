@@ -29,8 +29,8 @@ end
   end
 end
 
-file "#{node['sprout']['home']}/.vimrc.local" do
-  action :touch
+cookbook_file "#{node['sprout']['home']}/.vimrc.local" do
+  source "vimrc.local"
+  action :create_if_missing
   owner node['current_user']
-  not_if { File.exist?("#{node['sprout']['home']}/.vimrc.local") }
 end
