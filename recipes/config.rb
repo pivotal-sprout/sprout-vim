@@ -30,7 +30,7 @@ end
 end
 
 cookbook_file "#{node['sprout']['home']}/.vimrc.local" do
-  source "vimrc.local"
+  source 'vimrc.local'
   action :create_if_missing
   owner node['current_user']
 end
