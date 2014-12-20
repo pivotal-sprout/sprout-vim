@@ -17,14 +17,14 @@ git node['sprout']['vim']['config']['path'] do
   branch 'master'
   revision node['sprout']['vim']['config']['ref']
   action :sync
-  user node['current_user']
+  user node['sprout']['user']
   enable_submodules true
 end
 
 %w(vimrc gvimrc).each do |vimrc|
   link "#{node['sprout']['home']}/.#{vimrc}" do
     to "#{node['sprout']['vim']['config']['path']}/#{vimrc}"
-    owner node['current_user']
+    owner node['sprout']['user']
     not_if { File.symlink?("#{node['sprout']['vim']['config']['path']}/#{vimrc}") }
   end
 end
@@ -32,5 +32,5 @@ end
 cookbook_file "#{node['sprout']['home']}/.vimrc.local" do
   source 'vimrc.local'
   action :create_if_missing
-  owner node['current_user']
+  owner node['sprout']['user']
 end
