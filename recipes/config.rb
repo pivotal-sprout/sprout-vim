@@ -10,7 +10,7 @@ ruby_block "ensure sprout-vim can manage #{node['sprout']['vim']['config']['path
   end
 end
 
-preexisting = File.exists?(File.join(node['sprout']['vim']['config']['path'], '.git'))
+preexisting = File.exist?(File.join(node['sprout']['vim']['config']['path'], '.git'))
 
 package 'git'
 

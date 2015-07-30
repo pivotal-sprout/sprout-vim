@@ -37,7 +37,7 @@ describe 'sprout-vim::config' do
       runner.node.set['sprout']['vim']['config']['repo'] = 'foo://bar.com/baz.git'
       runner.converge(described_recipe)
       expect(runner).to sync_git('/home/fauxhai/.vim').with(
-        repository: 'foo://bar.com/baz.git',
+        repository: 'foo://bar.com/baz.git'
       )
     end
 
@@ -59,17 +59,17 @@ describe 'sprout-vim::config' do
   describe 'installing/updating the configuration' do
     let(:install_executable?) { true }
     let(:update_executable?) { true }
-    let(:repo_exists?) { false }
+    let(:repo_exist?) { false }
     before do
       puts "update_executable? #{update_executable?}"
-      allow(File).to receive(:exists?).and_call_original
-      allow(File).to receive(:exists?).with('/home/fauxhai/.vim/.git').and_return(repo_exists?)
+      allow(File).to receive(:exist?).and_call_original
+      allow(File).to receive(:exist?).with('/home/fauxhai/.vim/.git').and_return(repo_exist?)
       allow(File).to receive(:executable?).with('/home/fauxhai/.vim/bin/install').and_return(install_executable?)
       allow(File).to receive(:executable?).with('/home/fauxhai/.vim/bin/update').and_return(update_executable?)
     end
 
     context 'when the repo was not previously checked out' do
-      let(:repo_exists?) { false }
+      let(:repo_exist?) { false }
 
       context 'and the install script exists and is executable' do
         let(:install_executable?) { true }
@@ -99,7 +99,7 @@ describe 'sprout-vim::config' do
     end
 
     context 'when the repo already exists' do
-      let(:repo_exists?) { true }
+      let(:repo_exist?) { true }
 
       context 'and the update script exists and is executable' do
         let(:update_executable?) { true }
@@ -121,7 +121,6 @@ describe 'sprout-vim::config' do
           expect(runner).to_not run_execute('./bin/update')
         end
       end
-
 
       it 'does not run the bin/install script' do
         runner.converge(described_recipe)
