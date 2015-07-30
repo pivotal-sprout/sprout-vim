@@ -1,9 +1,6 @@
-site 'http://community.opscode.com/api/v1'
+site 'https://supermarket.getchef.com/api/v1'
 
-cookbook 'sprout-vim', path: '.'
-cookbook 'sprout-base', github: 'pivotal-sprout/sprout-base'
-cookbook 'sprout-osx-apps', github: 'pivotal-sprout/sprout', path: 'sprout-osx-apps'
-cookbook 'sprout-osx-settings', github: 'pivotal-sprout/sprout-osx-settings'
-
-# Use fork of homebrew cookbook so that sprout-vim works in Mountain Lion
-cookbook 'homebrew', github: 'pivotal/homebrew-chef', ref: 'unset-rubyopt-environment-variable'
+cookbook 'sprout-vim',               path: '.'
+cookbook 'sprout-base',              github: 'pivotal-sprout/sprout-base'
+cookbook 'sprout-osx-apps',          github: 'pivotal-sprout/sprout-osx-apps'
+cookbook 'sprout-osx-settings',      github: 'pivotal-sprout/sprout-osx-settings'

@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    archive-tar-minitar (0.5.2)
     ast (1.1.0)
     awesome_print (1.2.0)
     chef (11.12.2)
@@ -53,12 +52,13 @@ GEM
     librarian (0.1.2)
       highline
       thor (~> 0.15)
-    librarian-chef (0.0.2)
-      archive-tar-minitar (>= 0.5.2)
+    librarian-chef (0.0.4)
       chef (>= 0.10)
       librarian (~> 0.1.0)
+      minitar (>= 0.5.2)
     method_source (0.8.2)
     mime-types (1.25.1)
+    minitar (0.5.4)
     mixlib-authentication (1.3.0)
       mixlib-log
     mixlib-cli (1.4.0)
@@ -135,3 +135,6 @@ DEPENDENCIES
   rspec
   rubocop
   soloist
+
+BUNDLED WITH
+   1.10.3

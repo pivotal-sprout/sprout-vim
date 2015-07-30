@@ -10,6 +10,8 @@ ruby_block "ensure sprout-vim can manage #{node['sprout']['vim']['config']['path
   end
 end
 
+preexisting = File.exists?(File.join(node['sprout']['vim']['config']['path'], '.git'))
+
 package 'git'
 
 git node['sprout']['vim']['config']['path'] do
@@ -21,11 +23,28 @@ git node['sprout']['vim']['config']['path'] do
   enable_submodules true
 end
 
+install_file = File.join(node['sprout']['vim']['config']['path'], 'bin', 'install')
+execute('./bin/install') do
+  cwd node['sprout']['vim']['config']['path']
+  user node['sprout']['user']
+  not_if { preexisting }
+  only_if { File.executable?(install_file) }
+end
+
+update_file = File.join(node['sprout']['vim']['config']['path'], 'bin', 'update')
+execute('./bin/update') do
+  cwd node['sprout']['vim']['config']['path']
+  user node['sprout']['user']
+  only_if { preexisting }
+  only_if { File.executable?(update_file) }
+end
+
 %w(vimrc gvimrc).each do |vimrc|
+  file_to_link = "#{node['sprout']['vim']['config']['path']}/#{vimrc}"
   link "#{node['sprout']['home']}/.#{vimrc}" do
-    to "#{node['sprout']['vim']['config']['path']}/#{vimrc}"
+    to file_to_link
     owner node['sprout']['user']
-    not_if { File.symlink?("#{node['sprout']['vim']['config']['path']}/#{vimrc}") }
+    not_if { File.symlink?(file_to_link) }
   end
 end
 
