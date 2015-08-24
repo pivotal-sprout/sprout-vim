@@ -1,6 +1,6 @@
 name             'sprout-vim'
 maintainer       'Pivotal'
-maintainer_email 'sprout-maintainers@pivotallabs.com'
+maintainer_email 'sprout-maintainers@googlegroups.com'
 license          'MIT'
 description      'Cookbok for managing vim on an OS X workstation'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
