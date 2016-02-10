@@ -22,12 +22,12 @@ describe 'sprout-vim::config' do
   end
 
   describe 'cloning the repo with the vim config files' do
-    it 'clones pivotalcommon/vim-config by default' do
+    it 'clones pivotal/vim-config by default' do
       runner.converge(described_recipe)
       expect(runner).to sync_git('/home/fauxhai/.vim').with(
         branch: 'master',
         revision: 'master',
-        repository: 'https://github.com/pivotalcommon/vim-config.git',
+        repository: 'https://github.com/pivotal/vim-config.git',
         user: 'fauxhai',
         enable_submodules: true
       )

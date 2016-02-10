@@ -25,7 +25,7 @@ bundle exec soloist
 *NOTE:* All preferences are namespaced under `sprout => vim => config` they include:
 
 * `path` &mdash; path to the cloned vim-config repo; default is `~/.vim`
-* `repo` &mdash; url of the vim-config remote; default is `git://github.com/pivotalcommon/vim-config.git`
+* `repo` &mdash; url of the vim-config remote; default is `git://github.com/pivotal/vim-config.git`
 * `ref` &mdash; ref-spec to clone; default is `master`
 
 
