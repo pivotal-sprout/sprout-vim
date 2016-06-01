@@ -6,7 +6,7 @@ ruby_block "ensure sprout-vim can manage #{node['sprout']['vim']['config']['path
   not_if "#{missing} || (#{config_exist} && #{matching_remote})"
 
   block do
-    fail "Rename or delete #{node['sprout']['vim']['config']['path']} if you want to use this recipe"
+    raise "Rename or delete #{node['sprout']['vim']['config']['path']} if you want to use this recipe"
   end
 end
 

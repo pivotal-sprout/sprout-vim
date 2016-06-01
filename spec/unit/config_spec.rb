@@ -15,9 +15,9 @@ RSpec.describe 'sprout-vim::config' do
       stub_command(/test /).and_return(true)
     end
     it 'fails' do
-      expect {
+      expect do
         runner.converge(described_recipe)
-      }.to raise_error
+      end.to raise_error
     end
   end
 
@@ -77,9 +77,9 @@ RSpec.describe 'sprout-vim::config' do
         it 'runs the bin/install script' do
           runner.converge(described_recipe)
           expect(runner).to run_execute('./bin/install').with(
-              cwd: '/home/fauxhai/.vim',
-              user: 'fauxhai'
-            )
+            cwd: '/home/fauxhai/.vim',
+            user: 'fauxhai'
+          )
         end
       end
 
@@ -107,9 +107,9 @@ RSpec.describe 'sprout-vim::config' do
         it 'runs the bin/update script' do
           runner.converge(described_recipe)
           expect(runner).to run_execute('./bin/update').with(
-              cwd: '/home/fauxhai/.vim',
-              user: 'fauxhai'
-            )
+            cwd: '/home/fauxhai/.vim',
+            user: 'fauxhai'
+          )
         end
       end
 
