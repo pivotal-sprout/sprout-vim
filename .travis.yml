@@ -5,6 +5,13 @@ install:
   # Gets in the way of sprout-vim::config recipe
   - sudo rm -rf /Users/travis/.vim
 
+  # We are testing installation of things via homebrew, so should uninstall everything
+  - brew cask list
+  - brew cask zap $(brew cask list)
+  - brew list
+  - brew uninstall --force $(brew list)
+  - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+
   - export GEM_HOME=tmp/ruby/2.0.0/
   - export GEM_PATH=tmp/ruby/2.0.0/
   - export PATH=${GEM_HOME}/bin:${PATH}
