@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'sprout-vim' do
+RSpec.describe 'sprout-vim' do
   it 'installs MacVim, adds the .vim directory, and installs tmux' do
     brew_prefix = Bundler.with_clean_env { `brew --prefix`.chomp }
 

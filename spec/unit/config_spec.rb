@@ -1,6 +1,6 @@
 require 'unit/spec_helper'
 
-describe 'sprout-vim::config' do
+RSpec.describe 'sprout-vim::config' do
   let(:runner) { ChefSpec::SoloRunner.new }
 
   before do

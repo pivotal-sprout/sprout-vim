@@ -1,6 +1,6 @@
 require 'unit/spec_helper'
 
-describe 'sprout-vim::default' do
+RSpec.describe 'sprout-vim::default' do
   let(:runner) { ChefSpec::SoloRunner.new }
 
   before do
