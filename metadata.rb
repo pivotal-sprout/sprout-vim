@@ -9,3 +9,6 @@ supports         'mac_os_x'
 depends          'sprout-base'
 depends          'sprout-osx-apps'
 depends          'homebrew'
+
+issues_url 'https://github.com/pivotal-sprout/sprout-vim/issues'
+source_url 'https://github.com/pivotal-sprout/sprout-vim'
