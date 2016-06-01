@@ -61,7 +61,6 @@ RSpec.describe 'sprout-vim::config' do
     let(:update_executable?) { true }
     let(:repo_exist?) { false }
     before do
-      puts "update_executable? #{update_executable?}"
       allow(File).to receive(:exist?).and_call_original
       allow(File).to receive(:exist?).with('/home/fauxhai/.vim/.git').and_return(repo_exist?)
       allow(File).to receive(:executable?).with('/home/fauxhai/.vim/bin/install').and_return(install_executable?)
