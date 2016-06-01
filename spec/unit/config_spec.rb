@@ -7,17 +7,20 @@ RSpec.describe 'sprout-vim::config' do
     stub_command(/test /)
   end
 
-  context 'when there is already a ~/.vim', pending: 'cannot make it fail the not_if' do
+  context 'when there is already a ~/.vim' do
     before do
       runner.node.set['sprout']['vim']['config']['path'] = '/dest_dir'
       runner.node.set['sprout']['vim']['config']['repo'] = 'a@b.git'
 
       stub_command(/test /).and_return(true)
     end
+
     it 'fails' do
+      pending 'cannot make it fail the not_if'
+
       expect do
         runner.converge(described_recipe)
-      end.to raise_error
+      end.to raise_error(/Rename or delete/)
     end
   end
 
