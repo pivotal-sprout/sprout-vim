@@ -16,7 +16,7 @@ RSpec.describe 'sprout-vim' do
       expect(File.exist?(tmux_filename)).to be_false, 'Please run `brew uninstall tmux`'
     end
 
-    expect(system("rm -rf #{dotvim_directory}")).to be_true, "Unable to `rm -rf #{dotvim_directory}`"
+    expect(system("sudo rm -rf #{dotvim_directory}")).to be_true, "Unable to `rm -rf #{dotvim_directory}`"
   end
 
   it 'installs MacVim, adds the .vim directory, and installs tmux' do
