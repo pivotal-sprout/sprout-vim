@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe 'sprout-vim' do
-  it 'installs MacVim, adds the .vim directory, and installs tmux' do
+  let(:dotvim_directory) { File.expand_path('~/.vim') }
+
+  before do
     brew_installed = system('which brew')
 
     if brew_installed
@@ -14,9 +16,10 @@ RSpec.describe 'sprout-vim' do
       expect(File.exist?(tmux_filename)).to be_false, 'Please run `brew uninstall tmux`'
     end
 
-    dotvim_directory = File.expand_path('~/.vim')
-    expect(File.exist?(dotvim_directory)).to be_false, "Please run `rm -rf #{dotvim_directory}`"
+    expect(system("rm -rf #{dotvim_directory}")).to be_true, "Unable to `rm -rf #{dotvim_directory}`"
+  end
 
+  it 'installs MacVim, adds the .vim directory, and installs tmux' do
     expect(system('soloist')).to be_true
 
     expect(File.exist?(mvim_filename)).to be_true
