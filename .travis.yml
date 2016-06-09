@@ -2,20 +2,17 @@ language: objective-c
 osx_image: xcode7.3
 rvm: system
 install:
-  # Gets in the way of sprout-vim::config recipe
-  - sudo rm -rf ~/.vim
+  # Travis comes with Postgres 9.4 data, so we much clear it out
+  - rm -rf /usr/local/var/postgres
 
-  # We are testing installation of things via homebrew, so should uninstall everything
+  # We are testing installation of homebrew, so should uninstall everything
   - brew cask list
   - brew cask zap $(brew cask list)
   - brew list
   - brew uninstall --force $(brew list)
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
-  - export GEM_HOME=tmp/ruby/2.0.0/
-  - export GEM_PATH=tmp/ruby/2.0.0/
-  - export PATH=${GEM_HOME}/bin:${PATH}
-  - gem install bundler --no-document
-  - bundle install
+  - rvm implode --force # We are testing installation of Rubies, so should uninstall everything
+  - sudo rm -rf ~/.vim # Gets in the way of sprout-vim::config recipe
 script:
-  - bundle exec rake ci
+  - ./sprout exec rake ci
