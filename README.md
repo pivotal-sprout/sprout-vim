@@ -57,7 +57,7 @@ The default rake task includes rubocop, foodcritic, unit specs
 
 ### Unit specs
 
-Unit specs use [ServerSpec](http://serverspec.org/)
+Unit specs use [ChefSpec](https://github.com/sethvargo/chefspec)
 
 ```
 ./sprout exec rake spec:unit
