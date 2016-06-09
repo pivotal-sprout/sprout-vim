@@ -15,7 +15,7 @@ RSpec.describe 'sprout-vim' do
     end
 
     dotvim_directory = File.expand_path('~/.vim')
-    expect(File.exist?(dotvim_directory)).to be_false, 'Please run `rm -rf ~/.vim`'
+    expect(File.exist?(dotvim_directory)).to be_false, "Please run `rm -rf #{dotvim_directory}`"
 
     expect(system('soloist')).to be_true
 
