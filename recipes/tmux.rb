@@ -1,3 +1,4 @@
+include_recipe 'homebrew'
 package 'tmux'
 
 cookbook_file "#{node['sprout']['home']}/.tmux.conf" do
