@@ -6,16 +6,16 @@ RSpec.describe 'sprout-vim' do
   let(:brew_installed_tmux) { File.join('/usr/local/bin/tmux') }
 
   before do
-    expect(File).not_to exist?(brew_installed_mvim)
-    expect(File).not_to exist?(brew_installed_tmux)
-    expect(File).not_to exist?(dotvim_directory)
+    expect(File).not_to exist(brew_installed_mvim)
+    expect(File).not_to exist(brew_installed_tmux)
+    expect(File).not_to exist(dotvim_directory)
   end
 
   it 'installs MacVim, adds the .vim directory, and installs tmux' do
     expect(system('soloist')).to be_true
 
-    expect(File).to exist?(brew_installed_mvim)
-    expect(File).to exist?(brew_installed_tmux)
-    expect(File).to exist?(dotvim_directory)
+    expect(File).to exist(brew_installed_mvim)
+    expect(File).to exist(brew_installed_tmux)
+    expect(File).to exist(dotvim_directory)
   end
 end
