@@ -14,5 +14,6 @@ install:
 
   - rvm implode --force # We are testing installation of Rubies, so should uninstall everything
   - sudo rm -rf /Users/travis/.vim # Gets in the way of sprout-vim::config recipe
+  - \ls -alFG /Users/travis/
 script:
   - ./sprout exec rake ci
