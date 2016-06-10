@@ -6,8 +6,8 @@ install:
   - rm -rf /usr/local/var/postgres
 
   # We are testing installation of homebrew, so should uninstall everything
-  - brew cask list | xargs brew cask zap
-  - brew list | xargs brew uninstall --force
+  - brew cask list | xargs -I % brew cask zap %
+  - brew list | xargs -I % brew uninstall --force %
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
   - rvm implode --force # We are testing installation of Rubies, so should uninstall everything
