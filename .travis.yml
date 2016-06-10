@@ -5,8 +5,8 @@ install:
   # Travis comes with Postgres 9.4 data, so we much clear it out
   - rm -rf /usr/local/var/postgres
 
-  # We are testing installation of homebrew, so should uninstall everything
-  - brew cask list | xargs -t -I % bash -c "sudo brew cask zap '%'"
+  # We are testing installation of homebrew, so should uninstall everything (except xquartz)
+  - brew cask list | grep -v xquartz | xargs -t -I % bash -c "sudo brew cask zap '%'"
   - brew list | xargs -t -I % bash -c "brew uninstall --force '%'"
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
