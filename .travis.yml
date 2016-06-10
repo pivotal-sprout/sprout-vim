@@ -16,4 +16,7 @@ install:
   - sudo rm -rf /Users/travis/.vim # Gets in the way of sprout-vim::config recipe
   - \ls -alFG /Users/travis/
 script:
+  - \ls -alFG /Users/travis/
+  - sudo rm -rf /Users/travis/.vim # Gets in the way of sprout-vim::config recipe
+  - \ls -alFG /Users/travis/
   - ./sprout exec rake ci
